@@ -27,7 +27,7 @@
  */
 
 
-class ModuleMootoolsnav extends Module
+class ModuleMootoolsnav extends ModuleNavigation
 {
 
 	/**
@@ -35,8 +35,6 @@ class ModuleMootoolsnav extends Module
 	 * @var string
 	 */
 	protected $strTemplate = 'mod_mootoolsnav';
-
-	protected $navigationTpl = 'nav_moomenu';
 
 
 	/**
@@ -48,38 +46,40 @@ class ModuleMootoolsnav extends Module
 		if (TL_MODE == 'BE')
 		{
 			$objTemplate = new BackendTemplate('be_wildcard');
+
 			$objTemplate->wildcard = '### MOOTOOLS NAVIGATION MENU ###';
+			$objTemplate->title = $this->headline;
+			$objTemplate->id = $this->id;
+			$objTemplate->link = $this->name;
+			$objTemplate->href = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $this->id;
 
 			return $objTemplate->parse();
 		}
 
-		$strBuffer = parent::generate();
-		return strlen($this->Template->items) ? $strBuffer : '';
-	}
+		$GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/mootoolsnav/html/mootoolsnav-uncompressed.js';
 
-
-	/**
-	 * Generate module
-	 */
-	protected function compile()
-	{
-		global $objPage;
-
-		$GLOBALS['TL_JAVASCRIPT']['moomenu'] = 'system/modules/mootoolsnav/html/moomenu.js';
-
-		$trail = $objPage->trail;
-		$level = ($this->levelOffset > 0) ? $this->levelOffset : 0;
-
-		// Overwrite with custom reference page
-		if ($this->defineRoot && $this->rootPage > 0)
+		if ($this->mootoolsnavTrigger == '')
 		{
-			$trail = array($this->rootPage);
-			$level = 0;
+			$this->mootoolsnavTrigger = 'mouseenter';
 		}
 
-		$this->Template->skipId = 'skipNavigation_' . $this->id;
-		$this->Template->request = ampersand($this->Environment->request, ENCODE_AMPERSANDS);
-		$this->Template->skipNavigation = specialchars($GLOBALS['TL_LANG']['MSC']['skipNavigation']);
-		$this->Template->items = $this->renderNavigation($trail[$level]);
+		return parent::generate();
+	}
+
+
+	protected function compile()
+	{
+		$cssID = deserialize($this->cssID);
+
+		if ($cssID[0] == '')
+		{
+			$cssID[0] = 'mootoolsnav'.$this->id;
+		}
+
+		$this->Template->container = $cssID[0];
+		$this->cssID = $cssID;
+
+		parent::compile();
 	}
 }
+
