@@ -27,4 +27,8 @@
  */
 
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['mootoolsnav'] = 'name,type,headline;levelOffset,showLevel;hardLimit,showProtected;defineRoot;guests,protected;align,space,cssID';
+/**
+ * Palettes
+ */
+$GLOBALS['TL_DCA']['tl_module']['palettes']['mootoolsnav'] = '{title_legend},name,headline,type;{nav_legend},levelOffset,showLevel,hardLimit,showProtected;{reference_legend:hide},defineRoot;{template_legend:hide},navigationTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+
