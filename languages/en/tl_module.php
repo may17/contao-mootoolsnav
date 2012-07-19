@@ -21,28 +21,14 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Andreas Schempp 2008-2012
+ * @copyright  Andreas Schempp 2012
  * @author     Andreas Schempp <andreas@schempp.ch>
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
 
 
 /**
- * Palettes
- */
-$GLOBALS['TL_DCA']['tl_module']['palettes']['mootoolsnav'] = '{title_legend},name,headline,type;{nav_legend},levelOffset,showLevel,hardLimit,showProtected;{reference_legend:hide},defineRoot;{template_legend:hide},navigationTpl,mootoolsnavLevel;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
-
-
-/**
  * Fields
  */
-$GLOBALS['TL_DCA']['tl_module']['fields']['navigationTpl']['eval']['tl_class'] = 'w50';
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['mootoolsnavLevel'] = array
-(
-	'label'					=> &$GLOBALS['TL_LANG']['tl_module']['mootoolsnavLevel'],
-	'exclude'				=> true,
-	'inputType'				=> 'text',
-	'eval'					=> array('maxlength'=>5, 'rgxp'=>'digit', 'tl_class'=>'w50'),
-);
+$GLOBALS['TL_LANG']['tl_module']['mootoolsnavLevel'] = array('Animation Level', 'Enter the navigation level that should be animated.');
 
