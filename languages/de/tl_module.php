@@ -31,4 +31,12 @@
  * Fields
  */
 $GLOBALS['TL_LANG']['tl_module']['mootoolsnavLevel'] = array('Animiertes Level', 'Geben Sie das Level ein, welches animiert werden soll.');
+$GLOBALS['TL_LANG']['tl_module']['mootoolsnavTrigger']	= array('Menü öffnen', 'Select when the subnavigation should open.');
+
+
+/**
+ * References
+ */
+$GLOBALS['TL_LANG']['tl_module']['mootoolsnavTrigger']['mouseenter']	= 'Beim berühren (mouseover)';
+$GLOBALS['TL_LANG']['tl_module']['mootoolsnavTrigger']['click']			= 'Beim klicken';
 

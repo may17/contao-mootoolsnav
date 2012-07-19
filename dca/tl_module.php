@@ -30,19 +30,27 @@
 /**
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_module']['palettes']['mootoolsnav'] = '{title_legend},name,headline,type;{nav_legend},levelOffset,showLevel,hardLimit,showProtected;{reference_legend:hide},defineRoot;{template_legend:hide},navigationTpl,mootoolsnavLevel;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['mootoolsnav'] = '{title_legend},name,headline,type;{nav_legend},levelOffset,showLevel,hardLimit,showProtected;{reference_legend:hide},defineRoot;{template_legend:hide},navigationTpl,mootoolsnavLevel,mootoolsnavTrigger;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 
 /**
  * Fields
  */
-$GLOBALS['TL_DCA']['tl_module']['fields']['navigationTpl']['eval']['tl_class'] = 'w50';
-
 $GLOBALS['TL_DCA']['tl_module']['fields']['mootoolsnavLevel'] = array
 (
 	'label'					=> &$GLOBALS['TL_LANG']['tl_module']['mootoolsnavLevel'],
 	'exclude'				=> true,
 	'inputType'				=> 'text',
 	'eval'					=> array('maxlength'=>5, 'rgxp'=>'digit', 'tl_class'=>'w50'),
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['mootoolsnavTrigger'] = array
+(
+	'label'					=> &$GLOBALS['TL_LANG']['tl_module']['mootoolsnavTrigger'],
+	'exclude'				=> true,
+	'inputType'				=> 'select',
+	'options'				=> array('mouseenter', 'click'),
+	'reference'				=> &$GLOBALS['TL_LANG']['tl_module']['mootoolsnavTrigger'],
+	'eval'					=> array('mandatory'=>true, 'tl_class'=>'w50'),
 );
 
