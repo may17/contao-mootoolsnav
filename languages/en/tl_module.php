@@ -21,17 +21,22 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Andreas Schempp 2008-2012
+ * @copyright  Andreas Schempp 2012
  * @author     Andreas Schempp <andreas@schempp.ch>
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
 
 
 /**
- * Frontend modules
+ * Fields
  */
-array_insert($GLOBALS['FE_MOD']['navigationMenu'], 2, array
-(
-	'mootoolsnav' => 'ModuleMootoolsnav'
-));
+$GLOBALS['TL_LANG']['tl_module']['mootoolsnavLevel']	= array('Animation Level', 'Enter the navigation level that should be animated.');
+$GLOBALS['TL_LANG']['tl_module']['mootoolsnavTrigger']	= array('Open submenu', 'Select when the menu will show.');
+
+
+/**
+ * References
+ */
+$GLOBALS['TL_LANG']['tl_module']['mootoolsnavTrigger']['mouseenter']	= 'On mouse over';
+$GLOBALS['TL_LANG']['tl_module']['mootoolsnavTrigger']['click']			= 'On click';
 
