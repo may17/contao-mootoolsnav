@@ -21,36 +21,22 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Andreas Schempp 2008-2012
+ * @copyright  Andreas Schempp 2012
  * @author     Andreas Schempp <andreas@schempp.ch>
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
 
 
 /**
- * Palettes
+ * Fields
  */
-$GLOBALS['TL_DCA']['tl_module']['palettes']['mootoolsnav'] = '{title_legend},name,headline,type;{nav_legend},levelOffset,showLevel,hardLimit,showProtected;{reference_legend:hide},defineRoot;{template_legend:hide},navigationTpl,mootoolsnavLevel,mootoolsnavTrigger;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_LANG']['tl_module']['mootoolsnavLevel'] = array('Animiertes Level', 'Geben Sie das Level ein, welches animiert werden soll.');
+$GLOBALS['TL_LANG']['tl_module']['mootoolsnavTrigger']	= array('Menü öffnen', 'Select when the subnavigation should open.');
 
 
 /**
- * Fields
+ * References
  */
-$GLOBALS['TL_DCA']['tl_module']['fields']['mootoolsnavLevel'] = array
-(
-	'label'					=> &$GLOBALS['TL_LANG']['tl_module']['mootoolsnavLevel'],
-	'exclude'				=> true,
-	'inputType'				=> 'text',
-	'eval'					=> array('maxlength'=>5, 'rgxp'=>'digit', 'tl_class'=>'w50'),
-);
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['mootoolsnavTrigger'] = array
-(
-	'label'					=> &$GLOBALS['TL_LANG']['tl_module']['mootoolsnavTrigger'],
-	'exclude'				=> true,
-	'inputType'				=> 'select',
-	'options'				=> array('mouseenter', 'click'),
-	'reference'				=> &$GLOBALS['TL_LANG']['tl_module']['mootoolsnavTrigger'],
-	'eval'					=> array('mandatory'=>true, 'tl_class'=>'w50'),
-);
+$GLOBALS['TL_LANG']['tl_module']['mootoolsnavTrigger']['mouseenter']	= 'Beim berühren (mouseover)';
+$GLOBALS['TL_LANG']['tl_module']['mootoolsnavTrigger']['click']			= 'Beim klicken';
 
