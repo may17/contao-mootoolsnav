@@ -24,7 +24,11 @@ var MootoolsNav = new Class({
 				this.activeIndex = i;
 		}.bind(this));
 
+<<<<<<< HEAD
+		this.accordion = new Accordion(this.togglers, this.elements, {
+=======
 		this.accordion = new Fx.Accordion(this.togglers, this.elements, {
+>>>>>>> master
 			show: this.activeIndex,
 			trigger: this.options.trigger,
 			onActive: this.clearTimer
